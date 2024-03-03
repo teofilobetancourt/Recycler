@@ -1,9 +1,11 @@
+// ElementoAdapter.java
 package com.teoesword.recycler.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,13 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.teoesword.recycler.Models.Elemento;
 import com.teoesword.recycler.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ElementoAdapter extends RecyclerView.Adapter<ElementoAdapter.ElementoViewHolder> {
 
     private List<Elemento> elementos;
 
-    public ElementoAdapter(List<Elemento> elementos) {
+    public ElementoAdapter(List<Elemento> elementos, RecyclerView recyclerViewSubelementos) {
         this.elementos = elementos;
     }
 
@@ -40,8 +43,7 @@ public class ElementoAdapter extends RecyclerView.Adapter<ElementoAdapter.Elemen
     }
 
     public void setElementos(List<Elemento> nuevosElementos) {
-        this.elementos.clear();
-        this.elementos.addAll(nuevosElementos);
+        this.elementos = nuevosElementos;
         notifyDataSetChanged();
     }
 
@@ -62,14 +64,15 @@ public class ElementoAdapter extends RecyclerView.Adapter<ElementoAdapter.Elemen
 
             // Configuración del RecyclerView de subelementos
             recyclerViewSubelementos.setLayoutManager(new LinearLayoutManager(itemView.getContext()));
+            // Crear un nuevo adaptador para los subelementos
+            subElementoAdapter = new SubElementoAdapter(new ArrayList<>());
+            recyclerViewSubelementos.setAdapter(subElementoAdapter);
         }
 
         public void bind(Elemento elemento) {
             nombreElemento.setText(elemento.getNombre());
-
             // Configuración del adaptador de subelementos
-            subElementoAdapter = new SubElementoAdapter(elemento.getSubelementos());
-            recyclerViewSubelementos.setAdapter(subElementoAdapter);
+            subElementoAdapter.setSubelementos(elemento.getSubelementos());
         }
     }
 }

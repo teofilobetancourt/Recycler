@@ -2,17 +2,14 @@ package com.teoesword.recycler.Activity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.teoesword.recycler.Adapter.CategoriaAdapter;
 import com.teoesword.recycler.Models.Categoria;
 import com.teoesword.recycler.Models.Elemento;
 import com.teoesword.recycler.Models.SubElemento;
 import com.teoesword.recycler.R;
-
 import java.util.ArrayList;
 import java.util.List;
 

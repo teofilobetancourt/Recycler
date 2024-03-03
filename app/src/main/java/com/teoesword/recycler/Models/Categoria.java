@@ -7,7 +7,8 @@ public class Categoria {
     private String informacionAdicional;
     private int edadCategoria;
     private String horarioCategoria;
-    private List<Elemento> elementos; // Asumiendo que tienes una clase Elemento
+    private List<Elemento> elementos;
+    private boolean isExpanded; // Nueva propiedad para rastrear si está expandida
 
     // Constructor
     public Categoria(String nombre, String informacionAdicional, int edadCategoria, String horarioCategoria, List<Elemento> elementos) {
@@ -16,6 +17,7 @@ public class Categoria {
         this.edadCategoria = edadCategoria;
         this.horarioCategoria = horarioCategoria;
         this.elementos = elementos;
+        this.isExpanded = false; // Por defecto, no está expandida
     }
 
     // Getters y setters
@@ -58,5 +60,13 @@ public class Categoria {
 
     public void setElementos(List<Elemento> elementos) {
         this.elementos = elementos;
+    }
+
+    public boolean isExpanded() {
+        return isExpanded;
+    }
+
+    public void setExpanded(boolean expanded) {
+        isExpanded = expanded;
     }
 }

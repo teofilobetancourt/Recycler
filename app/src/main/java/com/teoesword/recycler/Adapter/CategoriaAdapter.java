@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.teoesword.recycler.Models.Categoria;
 import com.teoesword.recycler.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.CategoriaViewHolder> {
@@ -59,17 +58,16 @@ public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.Cate
                     Categoria categoria = (Categoria) nombreCategoria.getTag();
 
                     // Cambiar la visibilidad de los elementos
-                    if (categoria.getElementos().size() > 0) {
-                        if (recyclerViewElementos.getVisibility() == View.GONE) {
-                            // Si la vista de elementos está oculta, mostrarla y actualizar los elementos
-                            recyclerViewElementos.setVisibility(View.VISIBLE);
-                            elementoAdapter.setElementos(categoria.getElementos());
-                        } else {
-                            // Si la vista de elementos ya está visible, ocultarla y borrar los elementos
-                            recyclerViewElementos.setVisibility(View.GONE);
-                            elementoAdapter.clearElementos();
-                        }
+                    if (recyclerViewElementos.getVisibility() == View.GONE) {
+                        // Si la vista de elementos está oculta, mostrarla y actualizar los elementos
+                        recyclerViewElementos.setVisibility(View.VISIBLE);
+                        categoria.setExpanded(true); // Marcar como expandida
+                    } else {
+                        // Si la vista de elementos ya está visible, ocultarla y borrar los elementos
+                        recyclerViewElementos.setVisibility(View.GONE);
+                        categoria.setExpanded(false); // Marcar como no expandida
                     }
+                    notifyDataSetChanged(); // Notificar al adaptador sobre el cambio
                 }
             });
         }
@@ -83,8 +81,11 @@ public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.Cate
             // Configurar el RecyclerView para los elementos
             recyclerViewElementos.setLayoutManager(new LinearLayoutManager(itemView.getContext()));
             // Crear un nuevo adaptador para los elementos
-            elementoAdapter = new ElementoAdapter(new ArrayList<>());
+            elementoAdapter = new ElementoAdapter(categoria.getElementos(), null);
             recyclerViewElementos.setAdapter(elementoAdapter);
+
+            // Establecer la visibilidad inicial del RecyclerView según la categoría
+            recyclerViewElementos.setVisibility(categoria.isExpanded() ? View.VISIBLE : View.GONE);
         }
     }
 }
