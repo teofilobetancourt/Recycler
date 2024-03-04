@@ -81,7 +81,7 @@ public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.Cate
             // Configurar el RecyclerView para los elementos
             recyclerViewElementos.setLayoutManager(new LinearLayoutManager(itemView.getContext()));
             // Crear un nuevo adaptador para los elementos
-            elementoAdapter = new ElementoAdapter(categoria.getElementos(), null);
+            elementoAdapter = new ElementoAdapter(categoria.getElementos());
             recyclerViewElementos.setAdapter(elementoAdapter);
 
             // Establecer la visibilidad inicial del RecyclerView según la categoría

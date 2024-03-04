@@ -20,7 +20,7 @@ public class ElementoAdapter extends RecyclerView.Adapter<ElementoAdapter.Elemen
 
     private List<Elemento> elementos;
 
-    public ElementoAdapter(List<Elemento> elementos, RecyclerView recyclerViewSubelementos) {
+    public ElementoAdapter(List<Elemento> elementos) {
         this.elementos = elementos;
     }
 
@@ -67,12 +67,34 @@ public class ElementoAdapter extends RecyclerView.Adapter<ElementoAdapter.Elemen
             // Crear un nuevo adaptador para los subelementos
             subElementoAdapter = new SubElementoAdapter(new ArrayList<>());
             recyclerViewSubelementos.setAdapter(subElementoAdapter);
+
+            // Agregar OnClickListener para expandir/cerrar los subelementos
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Obtener el elemento actual
+                    Elemento elemento = elementos.get(getAdapterPosition());
+
+                    // Cambiar la visibilidad de los subelementos
+                    if (recyclerViewSubelementos.getVisibility() == View.GONE) {
+                        // Si la vista de subelementos está oculta, mostrarla y actualizar los subelementos
+                        recyclerViewSubelementos.setVisibility(View.VISIBLE);
+                        subElementoAdapter.setSubelementos(elemento.getSubelementos());
+                    } else {
+                        // Si la vista de subelementos ya está visible, ocultarla y borrar los subelementos
+                        recyclerViewSubelementos.setVisibility(View.GONE);
+                        subElementoAdapter.clearSubelementos();
+                    }
+                }
+            });
         }
 
         public void bind(Elemento elemento) {
             nombreElemento.setText(elemento.getNombre());
             // Configuración del adaptador de subelementos
             subElementoAdapter.setSubelementos(elemento.getSubelementos());
+            // Inicialmente, ocultar los subelementos
+            recyclerViewSubelementos.setVisibility(View.GONE);
         }
     }
 }
