@@ -1,8 +1,9 @@
 <!-- item_categoria.xml -->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -10,35 +11,50 @@
         android:id="@+id/nombreCategoria"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
-        android:textColor="@android:color/black"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/informacionAdicional"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/background_dark"
         android:textSize="14sp"
-        android:textColor="@android:color/background_dark"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombreCategoria" />
 
     <TextView
         android:id="@+id/edadCategoria"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
-        android:textColor="@android:color/black"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/informacionAdicional" />
 
+    <!-- Agrega el RecyclerView para los elementos -->
     <TextView
         android:id="@+id/horarioCategoria"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
-        android:textColor="@android:color/black"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edadCategoria" />
 
-    <!-- Agrega el RecyclerView para los elementos -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewElementos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"/>
+        android:layout_width="382dp"
+        android:layout_height="396dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horarioCategoria"
+        tools:listitem="@layout/item_r_segundo" />
 
 </LinearLayout>
