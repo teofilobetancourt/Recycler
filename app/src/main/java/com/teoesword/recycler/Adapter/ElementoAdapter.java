@@ -27,7 +27,7 @@ public class ElementoAdapter extends RecyclerView.Adapter<ElementoAdapter.Elemen
     @NonNull
     @Override
     public ElementoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_elemento, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_r_segundo, parent, false);
         return new ElementoViewHolder(view);
     }
 
@@ -53,13 +53,13 @@ public class ElementoAdapter extends RecyclerView.Adapter<ElementoAdapter.Elemen
     }
 
     public class ElementoViewHolder extends RecyclerView.ViewHolder {
-        private TextView nombreElemento;
+        private TextView textViewEquipo;
         private RecyclerView recyclerViewSubelementos;
         private SubElementoAdapter subElementoAdapter;
 
         public ElementoViewHolder(@NonNull View itemView) {
             super(itemView);
-            nombreElemento = itemView.findViewById(R.id.nombreElemento);
+            textViewEquipo = itemView.findViewById(R.id.textViewEquipo);
             recyclerViewSubelementos = itemView.findViewById(R.id.recyclerViewSubelementos);
 
             // Configuración del RecyclerView de subelementos
@@ -90,7 +90,7 @@ public class ElementoAdapter extends RecyclerView.Adapter<ElementoAdapter.Elemen
         }
 
         public void bind(Elemento elemento) {
-            nombreElemento.setText(elemento.getNombre());
+            textViewEquipo.setText(elemento.getEquipo());
             // Configuración del adaptador de subelementos
             subElementoAdapter.setSubelementos(elemento.getSubelementos());
             // Inicialmente, ocultar los subelementos

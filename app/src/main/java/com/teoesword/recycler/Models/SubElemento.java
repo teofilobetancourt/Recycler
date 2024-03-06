@@ -1,20 +1,28 @@
 package com.teoesword.recycler.Models;
 
 public class SubElemento {
-    private String nombre;
+    private String valor, unit;
 
     // Constructor
-    public SubElemento(String nombre) {
-        this.nombre = nombre;
+    public SubElemento(String valor, String unit) {
+        this.valor = valor; this.unit= unit;
     }
 
     // Getters y setters
 
-    public String getNombre() {
-        return nombre;
+    public String getValor() {
+        return valor;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setValor(String valor) {
+        this.valor = valor;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 }

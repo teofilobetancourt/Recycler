@@ -89,17 +89,14 @@
                 android:textStyle="bold"/>
 
         </LinearLayout>
-
-
-
-
-
-
-
-
-
-
-
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewElementos"
+            android:layout_width="382dp"
+            android:layout_height="396dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horarioCategoria"
+            tools:listitem="@layout/item_r_segundo" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

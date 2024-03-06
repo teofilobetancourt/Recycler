@@ -24,7 +24,7 @@ public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.Cate
     @NonNull
     @Override
     public CategoriaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_categoria, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_r_primero, parent, false);
         return new CategoriaViewHolder(view);
     }
 
@@ -40,22 +40,22 @@ public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.Cate
     }
 
     public class CategoriaViewHolder extends RecyclerView.ViewHolder {
-        private TextView nombreCategoria;
-        private TextView informacionAdicional;
+        private TextView tvid_tarea, textViewFecha, textViewDescripcionTarea;
         private RecyclerView recyclerViewElementos;
         private ElementoAdapter elementoAdapter;
 
         public CategoriaViewHolder(@NonNull View itemView) {
             super(itemView);
-            nombreCategoria = itemView.findViewById(R.id.nombreCategoria);
-            informacionAdicional = itemView.findViewById(R.id.informacionAdicional);
+            tvid_tarea = itemView.findViewById(R.id.tvid_tarea);
+            textViewFecha = itemView.findViewById(R.id.textViewFecha);
+            textViewDescripcionTarea= itemView.findViewById(R.id.textViewDescripcionTarea);
             recyclerViewElementos = itemView.findViewById(R.id.recyclerViewElementos);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     // Obtener la categoría actual
-                    Categoria categoria = (Categoria) nombreCategoria.getTag();
+                    Categoria categoria = (Categoria) tvid_tarea.getTag();
 
                     // Cambiar la visibilidad de los elementos
                     if (recyclerViewElementos.getVisibility() == View.GONE) {
@@ -73,10 +73,11 @@ public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.Cate
         }
 
         public void bind(Categoria categoria) {
-            nombreCategoria.setText(categoria.getNombre());
-            informacionAdicional.setText(categoria.getInformacionAdicional());
+            tvid_tarea.setText(categoria.getid_tarea());
+            textViewFecha.setText(categoria.getfecha());
+            textViewDescripcionTarea.setText(categoria.getDescripcion());
             // Guardar la categoría actual como una etiqueta en el nombreCategoria
-            nombreCategoria.setTag(categoria);
+            tvid_tarea.setTag(categoria);
 
             // Configurar el RecyclerView para los elementos
             recyclerViewElementos.setLayoutManager(new LinearLayoutManager(itemView.getContext()));

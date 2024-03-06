@@ -2,4 +2,17 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="Azul">#154f87</color>
+    <color name="Verde">#56cc4a</color>
+    <color name="Gris">#999999</color>
+
+    <color name="colorPrimary">#154f87</color>
+    <color name="colorBlanco">#ffffff</color>
+    <color name="colorRojo">#DB2A2A</color>
+
+
+    <color name="colorTexto">#607D8B</color>
+    <color name="secondaryTextColor">#ABB3CB</color>
+
+    <color name="transparent">#00000000</color>
 </resources>

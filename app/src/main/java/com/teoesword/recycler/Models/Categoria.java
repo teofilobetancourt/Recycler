@@ -3,55 +3,44 @@ package com.teoesword.recycler.Models;
 import java.util.List;
 
 public class Categoria {
-    private String nombre;
-    private String informacionAdicional;
-    private int edadCategoria;
-    private String horarioCategoria;
+    private String id_tarea, fecha, descripcion;
+
     private List<Elemento> elementos;
     private boolean isExpanded; // Nueva propiedad para rastrear si está expandida
 
     // Constructor
-    public Categoria(String nombre, String informacionAdicional, int edadCategoria, String horarioCategoria, List<Elemento> elementos) {
-        this.nombre = nombre;
-        this.informacionAdicional = informacionAdicional;
-        this.edadCategoria = edadCategoria;
-        this.horarioCategoria = horarioCategoria;
+    public Categoria(String id_tarea, String fecha, String descripcion, List<Elemento> elementos) {
+        this.id_tarea = id_tarea;
+        this.fecha = fecha;
+        this.descripcion = descripcion;
         this.elementos = elementos;
         this.isExpanded = false; // Por defecto, no está expandida
     }
 
     // Getters y setters
 
-    public String getNombre() {
-        return nombre;
+    public String getid_tarea() {
+        return id_tarea;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setid_tarea(String id_tarea) {
+        this.id_tarea = id_tarea;
     }
 
-    public String getInformacionAdicional() {
-        return informacionAdicional;
+    public String getfecha() {
+        return fecha;
     }
 
-    public void setInformacionAdicional(String informacionAdicional) {
-        this.informacionAdicional = informacionAdicional;
+    public void setfecha(String fecha) {
+        this.fecha = fecha;
     }
 
-    public int getEdadCategoria() {
-        return edadCategoria;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setEdadCategoria(int edadCategoria) {
-        this.edadCategoria = edadCategoria;
-    }
-
-    public String getHorarioCategoria() {
-        return horarioCategoria;
-    }
-
-    public void setHorarioCategoria(String horarioCategoria) {
-        this.horarioCategoria = horarioCategoria;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public List<Elemento> getElementos() {

@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         List<Elemento> elementosCategoria1 = obtenerElementosEjemplo();
         List<Elemento> elementosCategoria2 = obtenerElementosEjemplo();
 
-        Categoria categoria1 = new Categoria("Categoria 1", "Info 1", 20, "10:00 AM - 5:00 PM", elementosCategoria1);
-        Categoria categoria2 = new Categoria("Categoria 2", "Info 2", 25, "9:00 AM - 4:00 PM", elementosCategoria2);
+        Categoria categoria1 = new Categoria("0001-1", "6/3/2024", "medicion",  elementosCategoria1);
+        Categoria categoria2 = new Categoria("0002-2", "6/3/2024", "medicion", elementosCategoria2);
 
         categorias.add(categoria1);
         categorias.add(categoria2);
@@ -52,16 +52,16 @@ public class MainActivity extends AppCompatActivity {
     private List<Elemento> obtenerElementosEjemplo() {
         // Implementa la lógica para obtener los elementos reales
         List<Elemento> elementos = new ArrayList<>();
-        elementos.add(new Elemento("Elemento 1", obtenerSubelementosEjemplo()));
-        elementos.add(new Elemento("Elemento 2", obtenerSubelementosEjemplo()));
+        elementos.add(new Elemento("equipo 1", obtenerSubelementosEjemplo()));
+        elementos.add(new Elemento("equipo 2", obtenerSubelementosEjemplo()));
         return elementos;
     }
 
     private List<SubElemento> obtenerSubelementosEjemplo() {
         // Implementa la lógica para obtener los subelementos reales
         List<SubElemento> subelementos = new ArrayList<>();
-        subelementos.add(new SubElemento("Subelemento 1"));
-        subelementos.add(new SubElemento("Subelemento 2"));
+        subelementos.add(new SubElemento("500","metros"));
+        subelementos.add(new SubElemento("700","kilos"));
         return subelementos;
     }
 }
